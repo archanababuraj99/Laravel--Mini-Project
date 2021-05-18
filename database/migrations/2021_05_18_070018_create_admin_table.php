@@ -15,11 +15,17 @@ class CreateAdminTable extends Migration
     {
         Schema::create('tbl_admin', function (Blueprint $table) {
             $table->id("admin_id");
-            $table->string("admin_uname")->default("admin");
-            $table->string("admin_password")->default("admin123");
+            $table->string("admin_uname");
+            $table->string("admin_password");
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::table('tbl_admin')->insert(
+            array(
+                'admin_uname' => 'admin',
+                'admin_password' => 'admin123'
+            )
+        );
     }
 
     /**
