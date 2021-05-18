@@ -114,7 +114,7 @@
 
                 ?>
                 <td><?php echo $i;?></td>
-                <td><img src="../storage/images/<?php echo $st1->e_image?>" height="100" width="150" alt="<?php  echo $st1->e_image?>">
+                <td><img src="../storage/Images/<?php echo $st1->e_image?>" height="100" width="150" alt="<?php  echo $st1->e_image?>">
                
                 <td><?php echo $st1->e_name;?></td>
                 <td><?php echo $st1->e_desc;?></td>

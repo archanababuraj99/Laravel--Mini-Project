@@ -17,7 +17,7 @@ class AddEventController extends Controller
        
         $photo=$req->cfile;
         //$filename = $photo->getClientOriginalName();
-       $destination=public_path().'/storage/images';
+       $destination=public_path().'/storage/Images';
        $photo->move($destination,$photo->getClientOriginalName());
       
        // $filename = time(). '.' . $filename;
