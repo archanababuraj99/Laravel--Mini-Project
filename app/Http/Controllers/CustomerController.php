@@ -57,19 +57,20 @@ class CustomerController extends Controller
         }else{
                     if($getCPass==$getConpass)
                     {
-                        $customer=new CustomerModel();
-                        $customer->cname=$getCName;
-                        $customer->cusername=$getCUame;
-                        $customer->cmobile=$getCMob;
-                        $customer->cemail=$getCEmail;
-                        $customer->city=$getCity;
-                        $customer->street=$getStreet;
-                        $customer->cpassword=$getCPass;
-                        $customer->confirm_password=$getConpass;
+                        //$customer=new CustomerModel();
+                        // $customer->cname=$getCName;
+                        // $customer->cusername=$getCUame;
+                        // $customer->cmobile=$getCMob;
+                        // $customer->cemail=$getCEmail;
+                        // $customer->city=$getCity;
+                        // $customer->street=$getStreet;
+                        // $customer->cpassword=$getCPass;
+                        // $customer->confirm_password=$getConpass;
 
 
 
-                        $customer->save();
+                       // $customer->save();
+                       $log=CustomerModel::InsertData($getCName,$getCUame,$getCMob,$getCEmail,$getCity,$getStreet,$getCPass,$getConpass);
                         //return redirect('/clogin')->with('success','Registration Successfull');
                     
                         ?>
