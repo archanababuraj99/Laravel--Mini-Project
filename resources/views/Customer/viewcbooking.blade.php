@@ -57,8 +57,8 @@
                 <td><?php echo $st1->venu;?></td>
                 <td><?php echo $st1->date;?></td>
                 <td><?php echo $st1->No_of_members;?></td>
-                <td><?php //echo $st1->Status;?><h5 style="color:red;">Booking Confirmation Pending<h5></td>
-         
+                <!-- <td><?php //echo $st1->Status;?><h5 style="color:red;">Booking Confirmation Pending<h5></td> -->
+                <td><?php if($st1->Status=='1'){?><h4 style="color:green;">Booking Approved</h4><?php }else if($st1->Status=='2'){?><h4 style="color:red;">Booking Rejected</h4><?php }else { ?><h4 style="color:blue;">Booking Confirmation Pending</h4><?php } ?></td>
                 
               
                 
