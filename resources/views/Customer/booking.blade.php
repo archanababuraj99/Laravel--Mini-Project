@@ -74,7 +74,7 @@
 
                 ?> 
                 
-                <td align="center"><img src="..\Images\<?php  echo $st1->e_image?>" height="300" width="450"><br>
+                <td align="center"><img src="../images/<?php  echo $st1->e_image?>" height="300" width="450" alt=""><br>
                 <b><?php echo $st1->e_name;?></b></br>
                Rate:Rs. <?php echo $st1->e_price;?><br>
                 <?php echo $st1->e_desc;?><br>

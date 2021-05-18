@@ -16,8 +16,10 @@ class AddEventController extends Controller
         $erate=$req->inputrate;
        
         $photo=$req->cfile;
-        $destination=base_path().'/resources/views/Images';
+        $destination=public_path().'Images';
         $photo->move($destination,$photo->getClientOriginalName());
+      
+      
 
         if(isset($_POST["btnsave"]))
         

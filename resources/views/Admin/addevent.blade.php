@@ -95,6 +95,7 @@
 <table border="1" width="600">
         <tr>
                 <th>Sl.No</th>
+                <th>image</th>
                 <th>Event Name</th>
                 <th>Description</th>
                 <th>Price</th>
@@ -113,6 +114,7 @@
 
                 ?>
                 <td><?php echo $i;?></td>
+                <td><img src="../Images/<?php  echo $st1->e_image?>" height="100" width="150" alt="">
                 <td><?php echo $st1->e_name;?></td>
                 <td><?php echo $st1->e_desc;?></td>
                 <td><?php echo $st1->e_price;?></td>
