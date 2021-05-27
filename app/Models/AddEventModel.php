@@ -9,7 +9,7 @@ class AddEventModel extends Model
 {
     public static function EventData($en,$ep,$edes,$photo)
     {
-        $ins=DB::table('tbl_event')->insert(['e_name'=>$en,'e_price'=>$ep,'e_desc'=>$edes,'e_image'=>$photo->getClientOriginalName()]);
+        $ins=DB::table('tbl_event')->insert(['e_name'=>$en,'e_price'=>$ep,'e_desc'=>$edes,'e_image'=>$photo]);
         return $ins;
     }
     public static function GridView()

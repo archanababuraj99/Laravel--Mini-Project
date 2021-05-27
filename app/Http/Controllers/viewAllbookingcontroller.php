@@ -23,23 +23,24 @@ class viewAllbookingcontroller extends Controller
         $aid=$_GET["aid"];
        
             $upQ=viewAllbookingmodel::UpDataA($s,$aid);
-          
+            return redirect('Admin/viewallbooking');
+
+      
         }
-        else if(isset($_GET["rid"]))
+       if(isset($_GET["rid"]))
         {
+         
+            if(isset($_GET["rid"])){
+                $rid=$_GET["rid"];}
         
-          $s=2;
-         $rid=$_GET["rid"];
-        
-             $upQ=viewAllbookingmodel::UpDataR($s,$rid);
             
+        return view('Admin/Rejectstatus',['rd'=> $rid]);
          
          }
 
 
+         return view('Admin/viewallbooking',['booking'=>$sta1]);
 
-
-        return view('Admin/viewallbooking',['booking'=>$sta1]);
        }
 
        

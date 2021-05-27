@@ -57,10 +57,7 @@ if(isset($uname))
     <label for="inputname4" class="form-label">Name</label>
     <input type="text" name="cname" class="form-control" id="inputname4" value="<?php echo $data->cname;?>">
   </div>
-  <div class="col-md-6">
-    <label for="inputusername4" class="form-label">Username</label>
-    <input type="username" name="cusername" class="form-control" id="inputusername4"  value="<?php echo $data->cusername;?>">
-  </div>
+ 
   <div class="col-12">
     <label for="inputemail" class="form-label">Email</label>
     <input type="Email" name="cemail" class="form-control" id="inputemail" placeholder="example.gmail.com"  value="<?php echo $data->cemail;?>">

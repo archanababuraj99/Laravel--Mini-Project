@@ -1,5 +1,17 @@
 @extends("Customer/theme1")
 @section("content")
+
+
+<script type="text/javascript">
+
+function PrintDiv() {
+    var divToPrint = document.getElementById('printarea');
+    var popupWin = window.open('', '_blank', 'width=300,height=400,location=no,left=200px');
+    popupWin.document.open();
+    popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+    popupWin.document.close();
+}
+</script>
 <div class="container">
 <div class="row">
 <div class="col col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3"></div>
@@ -24,13 +36,14 @@
 </div>
 </div> -->
 
+
+
+<div id="printarea">
+
+<br>
+<br>
 <h1>Your Booking</h1>
-<br>
-<br>
-<br>
-
-
-<table class="table table-bordered" style="width:100%;">
+<table class="table table-hover table-dark table-striped " border="1"  style="width:100%">
 <tr>
  <th>Booking id</th>
  <th>Event Name</th>
@@ -38,7 +51,7 @@
  <th>Date</th>
  <th>No of Members</th>
  <th>Status</th>
-
+<th>Other</th>
 </tr>
  <tr>
                 <?php
@@ -60,7 +73,8 @@
          
                 
               
-                
+                <td><?php if($st1->Status=='2'){?>Reject Reason :<br><?php  echo $st1->rejectreason;} ?></td>
+              
         </tr>
 
                 <?php
@@ -73,11 +87,15 @@
 
 </table>
 
-<div class="col col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3"></div>
 
 </div>
 
 
+<div class="col col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3"></div>
+
+</div>
+
+<button class="btn btn-danger"  type="button" onclick="PrintDiv()" id="btnPrintbtn" Text="Print"/ >PrintNow</button>
 
 
 

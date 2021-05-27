@@ -1,6 +1,7 @@
 @extends("Customer/theme1")
 @section("content")
 
+
 <div class="container">
 <div class="row">
 <div class="col col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3"></div>
@@ -29,7 +30,7 @@
 <br>
 <br>
 <br>
-
+<div id="printarea">
 
 <table class="table table-bordered" style="width:100%;">
 <tr>
@@ -73,6 +74,7 @@
 
 
 </table>
+</div>
 
 <!-- </div> -->
 

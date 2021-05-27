@@ -18,7 +18,7 @@ class CreateEventTable extends Migration
             $table->string("e_name");
             $table->string("e_price");
             $table->string("e_desc",3000);
-            $table->string("e_image",1000);
+            $table->longtext("e_image");
             $table->timestamps();
         });
     }

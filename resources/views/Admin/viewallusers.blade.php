@@ -6,6 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <script type="text/javascript">
+
+function PrintDiv() {
+    var divToPrint = document.getElementById('printarea');
+    var popupWin = window.open('', '_blank', 'width=300,height=400,location=no,left=200px');
+    popupWin.document.open();
+    popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+    popupWin.document.close();
+}
+</script>
 </head>
 <body>
 
@@ -13,7 +23,7 @@
 <nav class="navbar navbar-expand-lg navbar-info bg-light">
   <div class="container-fluid">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbNreGBrHJnDSzXUFErHhwLXPUH25vVWPD3g&usqp=CAU" alt="" width="90" height="80" class="d-inline-block align-top">
-    <a class="navbar-brand" href="/admindash">&nbsp;Admin Dashboard</a>
+    <a class="navbar-brand" href="admindash">&nbsp;Admin Dashboard</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,7 +39,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li><a class="dropdown-item" href="viewallbooking">New Report</a></li>
             <li><a class="dropdown-item" href="approvebooking">Approved Booking</a></li>
-          
+            <li><a class="dropdown-item" href="ViewBookingDateWise">Datewise Booking</a></li>
             <li><a class="dropdown-item" href="viewallusers">Customer Report</a></li>
           </ul>
         </li>
@@ -48,13 +58,14 @@
 
 <div class="container">
 
-<div class="row">
-<div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-<h1 class="display-2">Users Report</h1>
+<div id="printarea">
+<br><br>
+<br>
+<h1 >Users Report</h1>
 <br>
 <br>
 <br>
-<table class="table table-bordered">
+<table class="table table-hover table-dark table-striped " border="1"  style="width:100%">
 <tr>
  <th>Customer ID</th>
  <th>Customer Name</th>
@@ -102,11 +113,7 @@
  
 </table>
 </div>
-
-
-</div>
-
-</div>
+<button class="btn btn-danger"  type="button" onclick="PrintDiv()" id="btnPrintbtn" Text="Print"/ >Download to pdf</button>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>

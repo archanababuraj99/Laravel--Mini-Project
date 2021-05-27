@@ -59,7 +59,7 @@
 
   <div class="col-12">
     <label for="inputedate" class="form-label">Event Date</label>
-    <input type="date" class="form-control" name="inputedate" id="inputedate">
+    <input type="date" class="form-control" name="inputedate" id="inputedate" min="<?php echo date('Y-m-d')?>">
   </div>
 
 
@@ -71,7 +71,7 @@
 
   <div class="col-12">
   <center><button class="btn btn-info" type="submit" name="btn" id="btn">BookNow</button></center>
-  <a href="/booking">Cancel</a>
+  <a href="booking">Cancel</a>
   </div>
 
 </form>

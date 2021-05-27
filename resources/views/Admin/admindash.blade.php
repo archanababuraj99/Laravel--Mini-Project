@@ -16,7 +16,7 @@
 <nav class="navbar navbar-expand-lg navbar-info bg-light">
   <div class="container-fluid">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbNreGBrHJnDSzXUFErHhwLXPUH25vVWPD3g&usqp=CAU" alt="" width="90" height="80" class="d-inline-block align-top">
-    <a class="navbar-brand" href="#">&nbsp;Admin Dashboard</a>
+    <a class="navbar-brand" href="admindash">&nbsp;Admin Dashboard</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,6 +32,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li><a class="dropdown-item" href="viewallbooking">New Report</a></li>
             <li><a class="dropdown-item" href="approvebooking">Approved Booking</a></li>
+            <li><a class="dropdown-item" href="ViewBookingDateWise">Datewise Booking</a></li>
           
             <li><a class="dropdown-item" href="viewallusers">Customer Report</a></li>
           </ul>

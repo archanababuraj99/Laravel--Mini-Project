@@ -13,7 +13,7 @@
 <nav class="navbar navbar-expand-lg navbar-info bg-light">
   <div class="container-fluid">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbNreGBrHJnDSzXUFErHhwLXPUH25vVWPD3g&usqp=CAU" alt="" width="90" height="80" class="d-inline-block align-top">
-    <a class="navbar-brand" href="/admindash">&nbsp;Admin Dashboard</a>
+    <a class="navbar-brand" href="admindash">&nbsp;Admin Dashboard</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,7 +29,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li><a class="dropdown-item" href="viewallbooking">New Report</a></li>
             <li><a class="dropdown-item" href="approvebooking">Approved Booking</a></li>
-          
+            <li><a class="dropdown-item" href="ViewBookingDateWise">Datewise Booking</a></li>
             <li><a class="dropdown-item" href="viewallusers">Customer Report</a></li>
           </ul>
         </li>
@@ -79,7 +79,8 @@
   </div>
   <div class="col-12">
     <label for="inputrate" class="form-label">Upload Image</label>
-    <input name="cfile" type="file" class="form-control">
+    <input name="files" id="files" type="file" class="form-control">
+    <input type="hidden" id="cfile" name="cfile"  />
   </div>
 
 
@@ -114,7 +115,7 @@
 
                 ?>
                 <td><?php echo $i;?></td>
-                <td><img src="../storage/Images/<?php echo $st1->e_image?>" height="100" width="150" alt="<?php  echo $st1->e_image?>">
+                <td><img src="<?php echo $st1->e_image?>" height="100" width="150" alt="<?php  echo $st1->e_image?>">
                
                 <td><?php echo $st1->e_name;?></td>
                 <td><?php echo $st1->e_desc;?></td>
@@ -145,7 +146,38 @@
 <div class="col col-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
 </div>
 </div>
+<script>
+	// Check for the File API support.
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+} else {
+  alert('The File APIs are not fully supported in this browser.');
+}
 
+function handleFileSelect(evt) {
+  var f = evt.target.files[0]; // FileList object
+  var reader = new FileReader();
+  // Closure to capture the file information.
+  reader.onload = (function(theFile) {
+    return function(e) {
+      var binaryData = e.target.result;
+      //Converting Binary Data to base 64
+      var base64String = window.btoa(binaryData);
+      //showing file converted to base64
+      document.getElementById('cfile').value = 'data:image/jpeg;base64,'+base64String;
+
+      //var url = 'data:image/jpeg;base64,'+base64String;
+
+      
+	//	img.src=url;
+		//document.body.img.appendChild(img);
+      
+    };
+  })(f);
+  // Read in the image file as a data URL.
+  reader.readAsBinaryString(f);
+}
+</script>
 
 
 

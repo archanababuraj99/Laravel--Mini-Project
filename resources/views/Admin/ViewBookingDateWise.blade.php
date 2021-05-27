@@ -6,6 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <script type="text/javascript">
+
+function PrintDiv() {
+    var divToPrint = document.getElementById('printarea');
+    var popupWin = window.open('', '_blank', 'width=300,height=400,location=no,left=200px');
+    popupWin.document.open();
+    popupWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</html>');
+    popupWin.document.close();
+}
+</script>
+<style>
+td,th{
+  border:1px solid black;
+}
+</style>
 </head>
 <body>
 
@@ -49,11 +64,46 @@
 <div class="container">
 
 
-<h1 >New Booking List</h1>
+<h1 class="display-2">Booking Report</h1>
 <br>
 <br>
 <br>
+
+<form class="row g-3" method="post">
+
+{{ csrf_field() }}
+
+<div class="col-12">
+    <label for="inputefdate" class="form-label">From Date</label>
+    <input type="date" class="form-control" name="inputefdate" id="inputefdate">
+  </div>
+  <div class="col-12">
+    <label for="inputesdate" class="form-label">To Date</label>
+    <input type="date" class="form-control" name="inputesdate" id="inputesdate">
+  </div>
+  
+
+
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary" name="btnsave">Submit</button>
+
+
+  </div>
+
+</form>
+<br>
+<br><br>
+
+<div id="printarea">
+<br><br>
+<br>
+<h2>Report</h2>
+
+<h6>From Date:<?php if(isset($fdate)) { echo $fdate; } ?> - To Date:<?php if(isset($edate)) { echo $edate ;} ?></h6>
+
 <table class="table table-hover table-dark table-striped " border="1"  style="width:100%">
+
 <tr>
  <th>Booking id</th>
  <th>Customer Name</th>
@@ -61,13 +111,15 @@
  <th>Venue</th>
  <th>Date</th>
  <th>Number of members</th>
- <th>Status</th>
- <th colspan="2">Action</th>
+ <!-- <th>Status</th> -->
+ 
 </tr>
+
  <tr>
-                <?php   $i=0;
+                <?php
+                 $i=0;
                     if(isset($booking))
-                 
+                   
                     {
                         foreach($booking as $st1)
                         {
@@ -81,10 +133,8 @@
                 <td><?php echo $st1->venu;?></td>
                 <td><?php echo $st1->date;?></td>
                 <td><?php echo $st1->No_of_members;?></td>
-                <!-- <td><?php //echo $st1->Status;?></td> -->
+                <!-- <td><?php echo $st1->Status;?></td> -->
                
-                <td><a href="viewallbooking?aid=<?php echo $st1->B_id;?>">Accept</a></td>
-                <td><a href="Rejectstatus?rid=<?php echo $st1->B_id;?>">Reject</a></td>
                 
         </tr>
 
@@ -101,14 +151,11 @@
  
 </table>
 
+</div><br>
+<br>
 
-</div>
+<button class="btn btn-danger"  type="button" onclick="PrintDiv()" id="btnPrintbtn" Text="Print"/ >Download to pdf</button>
 
-
-
-
-
-</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>

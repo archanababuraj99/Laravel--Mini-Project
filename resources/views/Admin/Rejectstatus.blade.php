@@ -48,65 +48,31 @@
 
 <div class="container">
 
-
-<h1 >New Booking List</h1>
+<div class="row">
+<div class="col col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+<h1 class="display-2">Reject Reason</h1>
 <br>
 <br>
 <br>
-<table class="table table-hover table-dark table-striped " border="1"  style="width:100%">
-<tr>
- <th>Booking id</th>
- <th>Customer Name</th>
- <th>Event Name</th>
- <th>Venue</th>
- <th>Date</th>
- <th>Number of members</th>
- <th>Status</th>
- <th colspan="2">Action</th>
-</tr>
- <tr>
-                <?php   $i=0;
-                    if(isset($booking))
-                 
-                    {
-                        foreach($booking as $st1)
-                        {
 
-                            $i++;
 
-                ?>
-                 <td><?php echo $st1->B_id ;?></td>
-                 <td><?php echo $st1->cname;?></td>
-                <td><?php echo $st1->e_name;?></td>
-                <td><?php echo $st1->venu;?></td>
-                <td><?php echo $st1->date;?></td>
-                <td><?php echo $st1->No_of_members;?></td>
-                <!-- <td><?php //echo $st1->Status;?></td> -->
-               
-                <td><a href="viewallbooking?aid=<?php echo $st1->B_id;?>">Accept</a></td>
-                <td><a href="Rejectstatus?rid=<?php echo $st1->B_id;?>">Reject</a></td>
-                
-        </tr>
+<form class="row g-3" method="post">
 
-                <?php
-                           }
-                        }
-    
-
-                ?>
-
+{{ csrf_field() }}
  
- 
- 
- 
-</table>
+  <div class="col-md-6">
+    <label for="inputdes4" class="form-label">Rejected Reason</label>
+    <input type="hidden" name="rid" value="<?php  if(isset($rd)){ echo $rd; }?>">
+    <textarea class="form-control" id="inputdes4" name="inputdes4"></textarea>
+  </div>
+  
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary" name="btnreject">Submit</button>
+    <button type="cancel" class="btn btn-primary">Cancel</button>
+  </div>
 
-
+</form>
 </div>
-
-
-
-
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>

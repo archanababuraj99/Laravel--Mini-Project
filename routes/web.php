@@ -19,6 +19,8 @@ use App\Http\Controllers\viewAllbookingcontroller;
 use App\Http\Controllers\viewapprovedbookingcontroller;
 use App\Http\Controllers\ConformbookingController;
 use App\Http\Controllers\userlistcontroller;
+use App\Http\Controllers\rejectcontroller;
+use App\Http\Controllers\bookingdatecontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -108,10 +110,23 @@ Route::get('Admin/addevent',[AddEventController::class,'ViewEvent']);
 Route::get('Admin/addevent/{id}',[AddEventController::class,'DeleteEvent']);
 
 Route::get('Admin/viewallbooking',[viewAllbookingcontroller::class,'Viewbookingnew']);
+
+
+Route::get('Admin/ViewBookingDateWise', function () {
+    return view('Admin/ViewBookingDateWise');
+});
+ Route::post('Admin/ViewBookingDateWise',[bookingdatecontroller::class,'Viewbookingdate']);
+
+
 Route::get('Admin/approvebooking',[viewapprovedbookingcontroller::class,'Viewbooking']);
 Route::get('Admin/viewallusers',[userlistcontroller::class,'User']);
 
 
+Route::get('Admin/Rejectstatus', function () {
+    return view('Admin/Rejectstatus');
+});
+Route::get('Admin/Rejectstatus',[viewAllbookingcontroller::class,'Viewbookingnew']);
+Route::post('Admin/Rejectstatus',[rejectcontroller::class,'rejectupdate']);
 //---------------------------------------------
 
 

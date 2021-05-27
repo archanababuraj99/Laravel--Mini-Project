@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBookingTable extends Migration
+class Booking extends Migration
 {
     /**
      * Run the migrations.
@@ -20,10 +20,11 @@ class CreateBookingTable extends Migration
             $table->string("mob");
             $table->string("E_descrip");
             $table->string("No_of_members");
-            $table->string("Status");
+            $table->integer("Status")->default('0');
             $table->string("email");
             $table->string("date");
             $table->string("venu");
+            $table->string("rejectreason",1000)->nullable();
             $table->timestamps();
         });
     }

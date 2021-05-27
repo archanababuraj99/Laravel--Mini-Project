@@ -12,10 +12,10 @@ class MyprofileModel extends Model
         $data=DB::table('customer_models')->where(["cusername"=>$un,"C_id"=>$ci])->get();
         return $data;
     }
-      public static function UpdateData($cid,$getCName,$getCUame,$getCMob,$getCEmail,$getCity,$getStreet)
+      public static function UpdateData($cid,$getCName,$getCMob,$getCEmail,$getCity,$getStreet)
     {
         $ins=DB::table('customer_models')->where(["C_id"=>$cid])
-        ->update(['cname'=>$getCName,'cusername'=> $getCUame,'cmobile'=> $getCMob,'cemail'=>$getCEmail,'city'=>$getCity,'street'=>$getStreet]);
+        ->update(['cname'=>$getCName,'cmobile'=> $getCMob,'cemail'=>$getCEmail,'city'=>$getCity,'street'=>$getStreet]);
         return $ins;
     }
 }

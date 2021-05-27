@@ -44,34 +44,28 @@ class CustomerController extends Controller
         $getCPass=request("cpassword");
         $getConpass=request("confirm_password");
 
-        $log=CustomerModel::CheckData($getCUame);
 
-        if(count($log)>0)
-        {
-            ?>
-                <script type="text/javascript">
-                            alert("Username Already Exist..");
-                            setTimeout(function(){window.location.href='/cregister'},100);
+     $log=CustomerModel::CheckData($getCUame);
+     if(count($log)>0)
+     {
+         ?>
+           <script type="text/javascript">
+                            alert("User name already  exist..");
+                            setTimeout(function(){window.location.href='/clogin'},100);
                         </script>
-       <?php
-        }else{
-                    if($getCPass==$getConpass)
+                       
+                       
+                       
+         <?php
+
+     }
+     else{
+     
+        if($getCPass==$getConpass)
                     {
-                        //$customer=new CustomerModel();
-                        // $customer->cname=$getCName;
-                        // $customer->cusername=$getCUame;
-                        // $customer->cmobile=$getCMob;
-                        // $customer->cemail=$getCEmail;
-                        // $customer->city=$getCity;
-                        // $customer->street=$getStreet;
-                        // $customer->cpassword=$getCPass;
-                        // $customer->confirm_password=$getConpass;
-
-
-
-                       // $customer->save();
+                        
                        $log=CustomerModel::InsertData($getCName,$getCUame,$getCMob,$getCEmail,$getCity,$getStreet,$getCPass,$getConpass);
-                        //return redirect('/clogin')->with('success','Registration Successfull');
+                      
                     
                         ?>
                         <script type="text/javascript">
@@ -87,7 +81,8 @@ class CustomerController extends Controller
                     </script>
                      <?php
                     }
-            }
+         
+                }
     }
 
     /**

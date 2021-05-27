@@ -22,7 +22,7 @@ class MyProfileController extends Controller
     {
        
         $getCName=$req->cname;
-        $getCUame=$req->cusername;
+    
         $getCMob=$req->cmobile;
         $getCEmail=$req->cemail;
         $getCity=$req->city;
@@ -32,7 +32,7 @@ class MyProfileController extends Controller
 
         if(isset($_POST["btnupdate"]))
         {
-            $upQ=MyprofileModel::UpdateData($ci,$getCName,$getCUame,$getCMob,$getCEmail,$getCity,$getStreet);
+            $upQ=MyprofileModel::UpdateData($ci,$getCName,$getCMob,$getCEmail,$getCity,$getStreet);
             return redirect('Customer/myprofile');
         }
 
